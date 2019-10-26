@@ -54,14 +54,14 @@ class TodoList extends Component {
             result.destination.index
         );
 
-        // verificar precisa remover
-        // this.state.todos = todos;
-
+       
         this.setState({
             todos: todos
-        })
-        this.props.onChangeOrder(this.state.todos);
-    }
+        }, () => {
+            this.props.onChangeOrder(this.state.todos);
+        });
+
+    };
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity

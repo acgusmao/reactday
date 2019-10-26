@@ -14,130 +14,130 @@ const documentList = "Documentos";
 const allCategories = [listBeforeTravel, documentList];
 const initialTodos = [
     {
-        id: Math.random(),
+        id: 1,
         content: "Checar passagem",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 2,
         content: "Checar hospedagem (enviar email confirmando)",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 3,
         content: "Seguro viagem",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 4,
         content:
             "Aluguel de carro/rotas de ônibus/como funcionam os táxis/uber?",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 5,
         content: "Ativar cartão internacional/sacar dinheiro/câmbio",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 6,
         content: "Ativar roaming internacional para celular/sim card ",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 7,
         content: "Fazer roteiro de viagem: passeios, restaurantes, etc",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 8,
         content: "Separar documentos",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 9,
         content: "Organizar a mala",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 10,
         content: "Organizar mala de mão",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 11,
         content:
             "Pensar em alternativas de leitura e música para o trajeto de avião",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 12,
         content: "Programar resposta automática de email",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 13,
         content: "Checar aplicativos disponíveis para turismo no destino",
         category: listBeforeTravel
     },
     {
-        id: Math.random(),
+        id: 14,
         content: "Comprovante do seguro",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 15,
         content: "Passaporte",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 16,
         content: "Cópias do passaporte autenticadas",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 17,
         content: "Passagens",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 18,
         content: "Carteira de motorista",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 19,
         content: "Cartão de crédito",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 20,
         content: "Voucher do hotel",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 21,
         content: "Telefones de emergência",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 22,
         content:
             "Telefones das bandeiras dos cartões em atendimento internacional",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 23,
         content: "Cartão de milhagem",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 24,
         content: "Checkin",
         category: documentList
     },
     {
-        id: Math.random(),
+        id: 25,
         content: "Carteirinha do plano de saúde",
         category: documentList
     }
@@ -151,7 +151,7 @@ const getNextActivities = todos => {
         _newMap[category] = findNext(category).content;
         return _newMap;
     }, {});
-
+    
     return nextTasks;
 };
 
@@ -162,7 +162,7 @@ function App() {
 
     function onChangeOrder(todos) {
         setNextActivities(getNextActivities(todos));
-    }
+    };
 
     return (
         <>
@@ -176,7 +176,7 @@ function App() {
                     <h1>Próximas tarefas:</h1>
                     <ul>
                         {Object.keys(nextActivities).map(category => (
-                            <li>
+                            <li key={category}>
                                 <strong>{category}</strong>:{" "}
                                 {nextActivities[category]}
                             </li>
