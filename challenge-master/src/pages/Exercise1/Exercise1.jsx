@@ -62,7 +62,6 @@ class Exercise1 extends Component {
                                         </td>
                                         <td className={classes.Action}>
                                             <PokeballIcon onClick={() => {
-                                                console.log(`REMOVE ${index}`)
                                                 this.setState({
                                                         selectedElements: this.state.availableElements.splice(index, 1).concat(this.state.selectedElements)
                                                 });
