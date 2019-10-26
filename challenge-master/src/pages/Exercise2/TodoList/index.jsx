@@ -55,8 +55,11 @@ class TodoList extends Component {
         );
 
         // verificar precisa remover
-        this.state.todos = todos;
+        // this.state.todos = todos;
 
+        this.setState({
+            todos: todos
+        })
         this.props.onChangeOrder(this.state.todos);
     }
 

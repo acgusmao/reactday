@@ -21,7 +21,7 @@ function FighterSelector() {
                 }
             ]);
         }, 1000);
-    }, [fighter])
+    }, [fighter, fighterSelectionHistory])
 
     return (
         <div className={styles.FighterSelector}>

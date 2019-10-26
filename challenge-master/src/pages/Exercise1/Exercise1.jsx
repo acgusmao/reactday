@@ -14,10 +14,14 @@ const instructions = [
     "A solução final não deve apresentar nenhum erro ou warning no console do browser."
 ];
 class Exercise1 extends Component {
-    state = {
-        availableElements: [],
-        selectedElements: []
-    }
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            availableElements: [],
+            selectedElements: []
+        };
+    };
     
     componentWillMount() {
         const getPokemonNumber = pokemonNumber => {
@@ -32,7 +36,7 @@ class Exercise1 extends Component {
                     ...item
                 })
             });
-            this.setState({ availableElements });
+            this.setState({ availableElements: availableElements });
         });
     }
 
@@ -46,7 +50,7 @@ class Exercise1 extends Component {
                         <table className={classes.Table}>
                             <tbody>
                                 {this.state.availableElements.map((element, index) => (
-                                    <tr key={Math.random()}>
+                                    <tr key={index}>
                                         <td className={classes.Number}>
                                             <div>{`#${element.number}`}</div>
                                         </td>
@@ -58,6 +62,7 @@ class Exercise1 extends Component {
                                         </td>
                                         <td className={classes.Action}>
                                             <PokeballIcon onClick={() => {
+                                                console.log(`REMOVE ${index}`)
                                                 this.setState({
                                                         selectedElements: this.state.availableElements.splice(index, 1).concat(this.state.selectedElements)
                                                 });
@@ -71,7 +76,7 @@ class Exercise1 extends Component {
                     <div className={classes.CaptureContainer}>
                         {this.state.selectedElements.map((element, index) => (
                             <Card 
-                                key={Math.random()}
+                                key={index}
                                 number={`#${element.number}`}
                                 name={element.name}
                                 src={getPokemonIconURL(element.number)}
